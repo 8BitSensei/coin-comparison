@@ -2,6 +2,11 @@ import pickle
 import os
 import urllib.request
 
+#===================================================
+# Open 'coins.pickle' and download the coin image from
+# the url in the scraped image data and save to coins/
+#===================================================
+
 
 coins = pickle.load(open("coins.pickle","rb"))
 

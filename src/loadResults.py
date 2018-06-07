@@ -43,11 +43,11 @@ test_groups = [x_test[np.where(y_test==i)[0]] for i in np.unique(y_train)]
 #Load in the feature models 
 #=======================================
 
-feature_model = load_model('feature.h5')
-similarity_model = load_model('similarity.h5')
+feature_model = load_model('models/feature.h5')
+similarity_model = load_model('models/similarity.h5')
 
-plot_model(feature_model, to_file='feature.png')
-plot_model(similarity_model, to_file='similarity.png')
+plot_model(feature_model, to_file='models/feature.png')
+plot_model(similarity_model, to_file='models/similarity.png')
 
 obj_categories = ['Anonymous',
 'Anonymous 0', 
@@ -110,14 +110,6 @@ tsne_features = tsne_obj.fit_transform(x_test_features)
 c_colors = plt.cm.rainbow(np.linspace(0, 1, 34))
 n_colours = plt.cm.rainbow(np.linspace(0, 1, 16))
 plt.figure(figsize=(4, 4))
-
-#sc = []
-#c = np.random.randint(1,5,size=15)
-
-#norm = plt.Normalize(1,4)
-#cmap = plt.cm.RdYlGn
-
-#fig,ax = plt.subplots()
 cds = []
 
 for c_group, (c_color, c_label, c_culture) in enumerate(zip(c_colors, obj_categories, obj_cultures)):
@@ -157,6 +149,5 @@ plt.xlabel('Dimension 1')
 plt.ylabel('Dimension 2')
 plt.title('t-SNE on Testing Samples')
 plt.legend(loc='best', prop={'size': 6})
-#plt.annotate(str(cds[0][0]),(cds[0][1],cds[0][2]))
 
 plt.show()

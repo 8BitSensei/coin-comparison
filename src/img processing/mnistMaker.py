@@ -8,9 +8,14 @@ from resizeimage import resizeimage
 from io import BytesIO
 import csv
 
+#===================================================
+# We need to convert the image data into a MNIST CSV
+# Style format for the CNN.
+#===================================================
+
 
 desired_size = 80
-rootdir = "CNN_data/training_set/"
+rootdir = "..imgs/CNN_data/training_set/"
 label = 0
 total = []
 
@@ -31,7 +36,6 @@ for subdir, dirs, files in os.walk(rootdir):
         new_size = tuple([int(x*ratio) for x in old_size])
 
         im = ImageOps.invert(im)
-        #im = change_contrast(im,25)
         im = im.resize(new_size, Image.ANTIALIAS)
 
         new_im = Image.new("RGB", (desired_size, desired_size))
@@ -47,8 +51,7 @@ for subdir, dirs, files in os.walk(rootdir):
         for i in arr:
             new_arr.append([i[0]])
 
-        with open("coinData.csv", "a") as fp:
-            #wr = csv.writer(fp, dialect='excel')
+        with open("../coinData.csv", "a") as fp:
             x = len(new_arr)
             i = 1
             for item in new_arr:
@@ -63,12 +66,5 @@ for subdir, dirs, files in os.walk(rootdir):
 
 
     label = label+1
-print("Image count:", imgCounter)
 
 
-#f = open('foo.csv','w')
-#f.write(label_str)
-#for i in total:
-	#value = str(i[0])+','
-	#f.write(value)
-#f.close()

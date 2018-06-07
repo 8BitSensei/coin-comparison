@@ -95,7 +95,7 @@ n_layer = img_in
 #20 layers including the input.
 #=======================================
 
-for i in range(1):
+for i in range(2):
     n_layer = Conv2D(8*2**i, kernel_size = (3,3), activation = 'linear')(n_layer)
     n_layer = BatchNormalization()(n_layer)
     n_layer = Activation('relu')(n_layer)
@@ -179,7 +179,7 @@ def siam_gen(in_groups, batch_size = 32):
 #=======================================
 
 valid_x, valid_y, valid_sim = random_batch(test_groups, 1024)
-loss_history = similarity_model.fit_generator(siam_gen(train_groups), steps_per_epoch = 500, validation_data=([valid_x, valid_y], valid_sim), epochs = 1, verbose = True)
+loss_history = similarity_model.fit_generator(siam_gen(train_groups), steps_per_epoch = 500, validation_data=([valid_x, valid_y], valid_sim), epochs = 10, verbose = True)
 
 
 
@@ -187,33 +187,13 @@ loss_history = similarity_model.fit_generator(siam_gen(train_groups), steps_per_
 #Give an example of the output after training
 #=======================================
 
-def run_predict():
-    fig = model_test()
-    fig.show()
-    plt.show()
+fig = model_test()
+fig.show()
+plt.show()
 
-
-def monitor(target):
-    if __name__ == '__main__':
-        worker_process = mp.Process(target=target)
-        worker_process.start()
-        p = psutil.Process(worker_process.pid)
-
-        # log cpu usage of `worker_process` every 10 ms
-        cpu_percents = []
-        while worker_process.is_alive():
-            cpu_percents.append(p.cpu_percent())
-            time.sleep(0.01)
-
-        worker_process.join()
-        return cpu_percents
-
-cpu_percents = monitor(target=run_predict)
-
-print("CPU:",cpu_percents)
 #=======================================
 #Save the models
 #=======================================
 
-#feature_model.save('feature.h5')
-#similarity_model.save('similarity.h5')
+feature_model.save('models/feature.h5')
+similarity_model.save('models/similarity.h5')

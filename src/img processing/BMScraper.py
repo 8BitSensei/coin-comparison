@@ -4,6 +4,12 @@ import re
 import pickle
 import pprint
 
+#===================================================
+# Using Beautiful Soup and Scraper we pull image
+# data from 100 pages of the British Museum catalogue
+# and save said data to 'coins.pickle'.
+#===================================================
+
 page = 100
 total = []
 for p in range(1,page):

@@ -14,13 +14,18 @@ from skimage.filters import rank
 from skimage.morphology import disk
 
 
+#===================================================
+# Apply histograms to the images in coins/ and save
+# to CNN_data/histImages/
+#===================================================
+
 def sobel_each(image):
     return filters.sobel(image)
 
 def sobel_hsv(image):
     return filters.sobel(image)
 
-rootdir = 'coins/'
+rootdir = '..imgs/coins/'
 for subdir, dirs, files in os.walk(rootdir):
     for file in files:
         print(os.path.join(subdir, file))
@@ -36,7 +41,7 @@ for subdir, dirs, files in os.walk(rootdir):
         img_eq = rank.equalize(better_contrast, selem=selem)
         img_rescale = exposure.equalize_hist(better_contrast)
 
-        save_directory = 'CNN_data/histImages/'+subdir+"/"
+        save_directory = '..imgs/CNN_data/histImages/'+subdir+"/"
         if not os.path.exists(save_directory):
             os.makedirs(save_directory)
         scipy.misc.imsave(save_directory+file,  better_contrast)
