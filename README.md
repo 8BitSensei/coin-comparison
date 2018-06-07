@@ -1,4 +1,4 @@
-# CNNs for comparing prehistoric and early historic coins
+# Siamese-CNN for comparing prehistoric and early historic coins
 
 This is a project which was part of my University of Surrey Comp Sci degree. I applied a siamese CNN model to compare extracted image features of some 7000 images scraped from the [British Museum Catalogue](http://www.britishmuseum.org/research/collection_online/search.aspx).
 
