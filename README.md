@@ -21,5 +21,3 @@ This is a project which was part of my University of Surrey Comp Sci degree. I a
 ## Acknowledgments
 
 * Colin O'Keefe for the [Web Scraper](https://realpython.com/python-web-scraping-practical-introduction/)
-* Inspiration
-* etc
