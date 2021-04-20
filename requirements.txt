@@ -137,7 +137,7 @@ ply==3.10
 prompt-toolkit==1.0.15
 protobuf==3.5.2.post1
 psutil==5.4.3
-py==1.5.2
+py==1.10.0
 pyasn1==0.4.3
 pyblake2==1.1.2
 pycares==2.3.0
