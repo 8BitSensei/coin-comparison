@@ -29,7 +29,7 @@ Bottleneck==1.2.1
 bs4==0.0.1
 bz2file==0.98
 cchardet==2.1.1
-certifi==2018.4.16
+certifi==2022.12.7
 cffi==1.11.4
 chardet==3.0.4
 click==6.7
